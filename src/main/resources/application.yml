@@ -1,0 +1,16 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    url: jdbc:mysql://partprime.iptime.org:43306/test
+    username: golfzon_iut
+    password: golfzon_iut
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
