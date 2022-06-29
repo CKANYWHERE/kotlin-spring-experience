@@ -1,9 +1,6 @@
 package com.example.kotlinspringexperience.product
 
-import com.example.kotlinspringexperience.product.dto.CategoryResponseDto
-import com.example.kotlinspringexperience.product.dto.CreateCategoryDto
-import com.example.kotlinspringexperience.product.dto.CreateProductDto
-import com.example.kotlinspringexperience.product.dto.ProductResponseDto
+import com.example.kotlinspringexperience.product.dto.*
 import com.example.kotlinspringexperience.product.entity.Product
 import com.example.kotlinspringexperience.product.repository.CategoryRepository
 import com.example.kotlinspringexperience.product.repository.ProductRepository
@@ -31,6 +28,15 @@ class ProductService(
     fun createCategory(createCategoryDto: CreateCategoryDto): CreateCategoryDto {
         val category = categoryRepository.save(createCategoryDto.toEntity())
         return category.toCreateDto(category.id!!)
+    }
+
+    @Transactional
+    fun deleteCategory(id: Long): CategoryDeleteResponseDto {
+        val status = categoryRepository.deleteCategoryById(id)
+        return CategoryDeleteResponseDto(
+            id = id,
+            isDeleted = status == 1L
+        )
     }
 
     @Transactional

@@ -19,6 +19,10 @@ class CategoryRepositoryImpl(private val query: JPAQueryFactory) :
             .execute()
     }
 
+    override fun deleteCategoryById(id: Long): Long {
+        return query.delete(category).where(category.id.eq(id)).execute()
+    }
+
     override fun findCategoryById(id: Long): CategoryVo? {
        return query.select(
            QCategoryVo(

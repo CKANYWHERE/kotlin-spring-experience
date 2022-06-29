@@ -21,6 +21,10 @@ data class CategoryResponseDto(
     val createdAt: OffsetDateTime = OffsetDateTime.MAX
 )
 
+data class CategoryDeleteResponseDto(
+    val id: Long = 0,
+    val isDeleted: Boolean = false
+)
 
 data class UpdateCategoryDto(
     val name: String = ""

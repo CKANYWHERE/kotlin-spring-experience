@@ -27,6 +27,12 @@ class ProductController(val productService: ProductService) {
         return ResponseEntity.ok().body(category)
     }
 
+    @DeleteMapping("/category/{id}")
+    fun deleteCategory(@PathVariable id: Long): ResponseEntity<CategoryDeleteResponseDto> {
+        val category = productService.deleteCategory(id)
+        return ResponseEntity.ok().body(category)
+    }
+
     @PutMapping("/category/{id}")
     fun updateCategory(@RequestBody dto: UpdateCategoryDto, @PathVariable id: Long): ResponseEntity<CategoryResponseDto> {
         val category = productService.updateCategory(id, dto.name)

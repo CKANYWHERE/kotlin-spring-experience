@@ -4,5 +4,6 @@ import com.example.kotlinspringexperience.product.vo.CategoryVo
 
 interface CategorySupport {
     fun updateCategoryById(id:Long, name:String): Long
+    fun deleteCategoryById(id:Long) : Long
     fun findCategoryById(id: Long): CategoryVo?
 }
