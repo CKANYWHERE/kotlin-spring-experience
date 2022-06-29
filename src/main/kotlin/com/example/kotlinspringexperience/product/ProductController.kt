@@ -1,7 +1,6 @@
 package com.example.kotlinspringexperience.product
 
-import com.example.kotlinspringexperience.product.dto.CreateProductDto
-import com.example.kotlinspringexperience.product.dto.ProductResponseDto
+import com.example.kotlinspringexperience.product.dto.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -22,4 +21,15 @@ class ProductController(val productService: ProductService) {
         return ResponseEntity.ok().body(product)
     }
 
+    @PostMapping("/category")
+    fun createCategory(@RequestBody createCategoryDto: CreateCategoryDto): ResponseEntity<CreateCategoryDto> {
+        val category = productService.createCategory(createCategoryDto)
+        return ResponseEntity.ok().body(category)
+    }
+
+    @PutMapping("/category/{id}")
+    fun updateCategory(@RequestBody dto: UpdateCategoryDto, @PathVariable id: Long): ResponseEntity<CategoryResponseDto> {
+        val category = productService.updateCategory(id, dto.name)
+        return ResponseEntity.ok().body(category)
+    }
 }

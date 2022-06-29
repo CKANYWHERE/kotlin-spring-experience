@@ -1,7 +1,7 @@
 package com.example.kotlinspringexperience.product.dto
 
-import com.example.kotlinspringexperience.product.Category
-import com.example.kotlinspringexperience.product.Product
+import com.example.kotlinspringexperience.product.entity.Category
+import com.example.kotlinspringexperience.product.entity.Product
 import java.time.OffsetDateTime
 
 data class ProductResponseDto(
