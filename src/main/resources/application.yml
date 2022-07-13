@@ -3,9 +3,9 @@ server:
     context-path: /api
 spring:
   datasource:
-    url: jdbc:mysql://partprime.iptime.org:43306/test
-    username: golfzon_iut
-    password: golfzon_iut
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
 
   jpa:
     show-sql: true
